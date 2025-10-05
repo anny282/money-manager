@@ -15,5 +15,5 @@ The main users of this application will be students and young adults who are sta
 - As a user, I want to be able to add and delete earnings with type and amount.  
 - As a user, I want to be able to view my list of earnings.  
 - As a user, I want to be able to see the percentage of my budget left.  
-- As a user, I want to be able to see the percentage breakdown of my spending and earnings by category.  
-- As a user, I want to be able to reset the month and store the old records.  
+- As a user, I want to be able to reset the month and have a report for this month.  
+- As a user, I want to be able to see report with the percentage breakdown of my spending and earnings by category.  
