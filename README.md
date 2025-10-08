@@ -17,5 +17,5 @@ The main users of this application will be students and young adults who are sta
 - As a user, I want to be able to delete earnings with index select.
 - As a user, I want to be able to view my list of earnings.  
 - As a user, I want to be able to view the amount of my budget left.  
-- As a user, I want to be able to end this month's record and restart for next month.  
+- As a user, I want to be able to end this record and restart for a new record.  
 - As a user, I want to be able to view the breakdown of my spending and earnings by category.  
