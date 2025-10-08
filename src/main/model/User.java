@@ -99,10 +99,12 @@ public void removeEarning(String cate, double amt, LocalDate date){
 
 }
 
+// EFFECTS: returns the total amount of all payments made by the user
 public double getTotalPayments(){
     return 0.0;
 }
 
+// EFFECTS: returns the total amount of all earnings received by the user
 public double getTotalEarnings(){
     return 0.0;
 }
