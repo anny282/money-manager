@@ -141,6 +141,8 @@ public void endCurrentRecord(){
     getBroke();
     payments.clear();
     earnings.clear();
+    Earning.resetCategoryTotal();
+    Payment.resetCategoryTotal();
     this.outOfBudget = false;
 
 }
