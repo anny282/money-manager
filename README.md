@@ -10,10 +10,10 @@ The main users of this application will be students and young adults who are sta
 ## User Stories  
 
 - As a user, I want to be able to create a profile with my name and starting amount.  
-- As a user, I want to be able to add and delete payments with type and amount.  
+- As a user, I want to be able to add and delete payments with type, amount and date.    
 - As a user, I want to be able to view my list of payments.  
-- As a user, I want to be able to add and delete earnings with type and amount.  
+- As a user, I want to be able to add and delete earnings with type, amount and date.  
 - As a user, I want to be able to view my list of earnings.  
-- As a user, I want to be able to see the percentage of my budget left.  
-- As a user, I want to be able to reset the month and have a report for this month.  
-- As a user, I want to be able to see report with the percentage breakdown of my spending and earnings by category.  
+- As a user, I want to be able to view the amount of my budget left.  
+- As a user, I want to be able to end this month's record and restart for next month.  
+- As a user, I want to be able to view the breakdown of my spending and earnings by category.  
