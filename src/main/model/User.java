@@ -6,8 +6,8 @@ import java.time.LocalDate;
 
 public class User {
 private String name;
-private LocalDate date;
 private double budget;
+private double budgetLeft;
 private double bankAmt;
 
 
@@ -15,11 +15,11 @@ private List<Payment> payments;
 private List<Earning> earnings;
 private Report report;
 
-public User(String name){
+public User(String name, double bankAmt){
     this.name = name;
-    this.date = LocalDate.now();
+    this.bankAmt = bankAmt;
     this.budget = 0.0;
-    this.bankAmt = 0.0;
+    this.budgetLeft = 0.0;
     this.payments = new ArrayList();
     this.earnings = new ArrayList();
 }
@@ -27,12 +27,6 @@ public User(String name){
 // MODIFIES: this
 // EFFECTS: Change name to the input new name
 public void setNewName(String name){
-
-}
-
-// MODIFIES: this
-// EFFECTS: Set the current date Value to the new input one
-public void setDate(LocalDate date){
 
 }
 
@@ -52,7 +46,7 @@ public String getName(){
     return "";
 }
 
-public LocalDate getDate(){
+public LocalDate getCurrentDate(){
     return LocalDate.now();
 }
 
@@ -64,12 +58,14 @@ public double getBankAmt(){
     return 0.0;
 }
 
-public double getTotalPayments(){
-    return 0.0;
+
+public List<Payment> getPayments(){
+    return null;
+
 }
 
-public double getTotalEarnings(){
-    return 0.0;
+public List<Earning> getEarnings(){
+    return null;
 }
 
 // REQUIRES: amt > 0, category of payment must be one in the payments option
@@ -103,27 +99,26 @@ public void removeEarning(String cate, double amt, LocalDate date){
 
 }
 
-// EFFECTS: return all the payments in the list, and also the total payment amt
-public void viewPayments(){
-
+public double getTotalPayments(){
+    return 0.0;
 }
 
-//EFFECTS: return all the earnings in the list, and also the total earning amt
-public void viewEarning(){
-
+public double getTotalEarnings(){
+    return 0.0;
 }
 
 // MODIFIES: this
-// EFFECTS: return a month report by calculate payments and earnings(differ cate); update bankAmt
-// reset payment list and earning list, budget keep same as last, keep bankAmt, warning bankamt<0
+// EFFECTS: reset payment list and earning list, budget keep same as last, warning bankamt<0
 public void endCurrentMonth(){
 
 }
 
 // REQUIRES: budget > 0
-// EFFECTS: return budget left percentage (budget-total pay)/budget *100, budget=0,always0
-public double budgetLeftPercent(){
+// EFFECTS: return budget amount left, budget=0,always0
+public double getBudgetLeft(){
     return 0.0;
 }
-}
 
+
+
+}
