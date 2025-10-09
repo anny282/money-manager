@@ -11,10 +11,15 @@ import org.junit.jupiter.api.Test;
 
 public class UserTest {
     private User userA;
+    private User userB;
+    private User userC;
+
 
     @BeforeEach
     void runBefore(){
         userA = new User("Anny", 10000);
+        userB = new User("Jade", 400);
+        userC = new User("Kayla", 0);
     }
 
 
@@ -90,8 +95,8 @@ public class UserTest {
         userA.addPayment("Housing",800);
         userA.addPayment("Food",20);
         assertEquals(820, userA.getTotalPayments());
-        userA.removePayment(0);
-        assertEquals(20, userA.getTotalPayments());
+        userA.removePayment(1);
+        assertEquals(800, userA.getTotalPayments());
     }
 
     @Test
@@ -106,18 +111,40 @@ public class UserTest {
     @Test
     void testEndCurrentRecord(){
         userA.setBudget(2000);
-        userA.addPayment("Housing",800);
-        userA.addPayment("Food",20);
+        userA.addPayment("Housing",1800);
+        userA.addPayment("Food",300);
         userA.addEarning("Job",100);
         userA.addEarning("Other",400);
         assertTrue(userA.getOutOfBudget());
         userA.endCurrentRecord();
-        assertEquals(9680, userA.getBankAmt());
+        assertEquals(8400, userA.getBankAmt());
         assertTrue(userA.getPayments().isEmpty());
         assertTrue(userA.getEarnings().isEmpty());
         assertFalse(userA.getBroke());
         assertFalse(userA.getOutOfBudget());
         assertEquals(2000, userA.getBudget());
+
+        userB.addPayment("Housing",1800);
+        userB.addPayment("Food",300);
+        userB.addEarning("Job",100);
+        userB.addEarning("Other",400);
+        userB.endCurrentRecord();
+        assertTrue(userB.getBroke());
+        assertEquals(-1200,userB.getBankAmt());
+
+        userC.setBudget(20000);
+        userC.addPayment("Housing",1800);
+        userC.addPayment("Food",300);
+        userC.addEarning("Job",100);
+        userC.addEarning("Other",400);
+        assertFalse(userC.getOutOfBudget());
+        userC.endCurrentRecord();
+        assertEquals(-1600, userC.getBankAmt());
+        assertTrue(userC.getPayments().isEmpty());
+        assertTrue(userC.getEarnings().isEmpty());
+        assertTrue(userC.getBroke());
+        assertFalse(userC.getOutOfBudget());
+        assertEquals(20000, userC.getBudget());
     }
 
     @Test
@@ -127,5 +154,12 @@ public class UserTest {
         userA.addPayment("Food",20);
         assertEquals(1180, userA.getBudgetLeft());
         assertFalse(userA.getOutOfBudget());
+
+        userB.addPayment("Housing",800);
+        userB.addPayment("Food",20);
+        assertEquals(0, userB.getBudgetLeft());
+        assertFalse(userB.getOutOfBudget());
+
+
     }
 }
