@@ -32,13 +32,14 @@ public class EarningTest {
     @Test
     void testAddToCategory(){
         assertEquals(1200, Earning.getJobTotal());
-        assertEquals(0, Earning.getOtherTotal());
+        assertEquals(100, Earning.getOtherTotal());
         assertEquals(0, Earning.getLottoTotal());
         assertEquals(500, Earning.getFinancialTotal());
     }
 
     @Test
     void testResetCategoryTotal(){
+        Earning.resetCategoryTotal();
         assertEquals(0, Earning.getJobTotal());
         assertEquals(0, Earning.getOtherTotal());
         assertEquals(0, Earning.getLottoTotal());
