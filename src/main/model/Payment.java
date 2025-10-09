@@ -9,12 +9,12 @@ private String category;
 
 
     private static double dailyUse = 0;
-    private static double food = 0;
+    private static double foodDrink = 0;
     private static double enter = 0;
     private static double trans = 0;
     private static double studies = 0;
     private static double housing = 0;
-    private static double beauty = 0;
+    private static double beautyCloth = 0;
     private static double other = 0;
 
  
@@ -22,6 +22,7 @@ private String category;
         this.category = category;
         this.amount = amount;
         this.date = LocalDate.now();
+        addToCategory();
     }
 
     // EFFECTS: return the category of this payment
@@ -39,49 +40,123 @@ private String category;
         return this.date;
     }
 
-    // MODIFIES: this class
+    // MODIFIES: this 
     // EFFECTS: adds amount to correct category total
     private void addToCategory() {
-
+              switch (category.toLowerCase()) {
+            case "daily use":
+                dailyUse += amount;
+                break;
+            case "food":
+            case "drink":
+                foodDrink += amount;
+                break;
+            case "entertainment":
+                enter += amount;
+                break;
+            case "transportation":
+                trans += amount;
+                break;
+            case "studies":
+                studies += amount;
+                break;
+            case "housing":
+                housing += amount;
+                break;
+            case "beauty":
+            case "cloth":
+                beautyCloth += amount;
+                break;
+            default:
+                other += amount;
+                break;
+        }
     }
 
-    public static double getdailyTotal(){
-        return 0.0;
+    // EFFECTS: remove the earning amount from specified category 
+    public void removeHandle(){
+        removeCate(category, amount);
     }
 
-    public static double getFoodTotal(){
-        return 0.0;
+    // MODIFIES: this
+    // EFFECTS: remove amount to correct category total
+    private void removeCate(String category, double amount){
+                      switch (category.toLowerCase()) {
+            case "daily use":
+                dailyUse -= amount;
+                break;
+            case "food":
+            case "drink":
+                foodDrink -= amount;
+                break;
+            case "entertainment":
+                enter -= amount;
+                break;
+            case "transportation":
+                trans -= amount;
+                break;
+            case "studies":
+                studies -= amount;
+                break;
+            case "housing":
+                housing -= amount;
+                break;
+            case "beauty":
+            case "cloth":
+                beautyCloth -= amount;
+                break;
+            default:
+                other -= amount;
+                break;
+        }
+    }
+
+    public static double getDailyTotal(){
+        return dailyUse;
+    }
+
+    public static double getFoodDrinkTotal(){
+        return foodDrink;
     }
 
     public static double getEntertainmentTotal(){
-        return 0.0;
+        return enter;
     }
 
     public static double getTransportationTotal(){
-        return 0.0;
+        return trans;
     }
 
     public static double getStudiesTotal(){
-        return 0.0;
+        return studies;
     }
 
     public static double getHousingTotal(){
-        return 0.0;
+        return housing;
     }
 
     public static double getBeautyClothTotal(){
-        return 0.0;
+        return beautyCloth;
     }
 
     public static double getOtherTotal(){
-        return 0.0;
+        return other;
     }
 
     // MODIFIES: this class
     // EFFECTS: reset all the cate total back to 0
     public static void resetCategoryTotal() {
+        dailyUse = 0;
+        foodDrink = 0;
+        enter = 0;
+        trans = 0;
+        studies = 0;
+        housing = 0;
+        beautyCloth = 0;
+        other = 0;
 
     }
+
 
 }
 
