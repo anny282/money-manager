@@ -30,7 +30,7 @@ public class Earning {
         return this.amount;
     }
 
-    // EFFECTS: return the date that this payment been created.
+    // EFFECTS: return the date that this earning been created.
     public LocalDate getDate(){
         return this.date;
     }
@@ -52,6 +52,28 @@ public class Earning {
                 other += amount;
                 break;
         }
+    }
+
+    // EFFECTS: remove the earning amount from specified category 
+    public void removeHandle(){
+        removeCate(category, amount);
+    }
+
+    private void removeCate(String category, double amount){
+         switch (category.toLowerCase()) {
+            case "job":
+                job -= amount;
+                break;
+            case "lotto":
+                lotto -= amount;
+                break;
+            case "financial":
+                financial -= amount;
+                break;
+            default:
+                other -= amount;
+                break;
+         }
     }
 
     public static double getJobTotal(){
