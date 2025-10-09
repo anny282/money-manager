@@ -58,13 +58,17 @@ public class PaymentTest {
     void testRemoveCate(){
         paymentI.removeHandle();
         paymentW.removeHandle();
+        paymentG.removeHandle();
+        paymentD.removeHandle();
+        paymentF.removeHandle();
+        paymentH.removeHandle();
         assertEquals(1000, Payment.getHousingTotal());
         assertEquals(0, Payment.getOtherTotal());
         assertEquals(100, Payment.getBeautyClothTotal());
-        assertEquals(500, Payment.getDailyTotal());
-        assertEquals(40,Payment.getEntertainmentTotal());
-        assertEquals(20,Payment.getTransportationTotal());
-        assertEquals(30,Payment.getStudiesTotal());
+        assertEquals(0, Payment.getDailyTotal());
+        assertEquals(0,Payment.getEntertainmentTotal());
+        assertEquals(0,Payment.getTransportationTotal());
+        assertEquals(0,Payment.getStudiesTotal());
         assertEquals(207,Payment.getFoodDrinkTotal());
     }
 
