@@ -13,35 +13,70 @@ public class Earning {
     private static double other = 0;
 
  
-    public Earning(){
-
+    public Earning(String category, double amount){
+        this.category = category;
+        this.amount = amount;
+        this.date = LocalDate.now();
+        addToCategory();
     }
 
     // EFFECTS: return the category of this earning
     public String getCategory(){
-        return "";
+        return this.category;
     }
 
     // EFFECTS: return the amount of this earning
     public double getAmount(){
-        return 0.0;
+        return this.amount;
     }
 
     // EFFECTS: return the date that this payment been created.
     public LocalDate getDate(){
-        return LocalDate.now();
+        return this.date;
     }
 
     // MODIFIES: this class
     // EFFECTS: adds amount to correct category total
     private void addToCategory() {
+         switch (category.toLowerCase()) {
+            case "job":
+                job += amount;
+                break;
+            case "lotto":
+                lotto += amount;
+                break;
+            case "financial":
+                financial += amount;
+                break;
+            default:
+                other += amount;
+                break;
+        }
+    }
 
+    public static double getJobTotal(){
+        return job;
+    }
+
+    public static double getLottoTotal(){
+        return lotto;
+    }
+
+    public static double getFinancialTotal(){
+        return financial;
+    }
+
+    public static double getOtherTotal(){
+        return other;
     }
 
     // MODIFIES: this class
     // EFFECTS: reset all the cate total back to 0
     public static void resetCategoryTotal() {
-
+        job = 0;
+        lotto = 0;
+        financial = 0;
+        other = 0;
     }
 
 }
