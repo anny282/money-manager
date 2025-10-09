@@ -13,6 +13,8 @@ public class EarningTest {
     private Earning earningB;
     private Earning earningC;
     private Earning earningD;
+    private Earning earningE;
+    private Earning earningF;
 
     @BeforeEach
     void runBefore(){
@@ -20,6 +22,8 @@ public class EarningTest {
         earningB = new Earning("Other", 100);
         earningC = new Earning("Job",200);
         earningD = new Earning("Financial", 500);
+        earningE = new Earning("Lotto", 30);
+        earningF = new Earning("Award",300);
     }
 
     @Test
@@ -32,8 +36,17 @@ public class EarningTest {
     @Test
     void testAddToCategory(){
         assertEquals(1200, Earning.getJobTotal());
-        assertEquals(100, Earning.getOtherTotal());
-        assertEquals(0, Earning.getLottoTotal());
+        assertEquals(400, Earning.getOtherTotal());
+        assertEquals(30, Earning.getLottoTotal());
+        assertEquals(500, Earning.getFinancialTotal());
+    }
+
+    @Test
+    void testRemoveCate(){
+        earningC.removeHandle();
+        assertEquals(1000, Earning.getJobTotal());
+        assertEquals(400, Earning.getOtherTotal());
+        assertEquals(30, Earning.getLottoTotal());
         assertEquals(500, Earning.getFinancialTotal());
     }
 
