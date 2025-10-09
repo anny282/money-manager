@@ -91,21 +91,23 @@ public void addEarning(String cate, double amt){
     getTotalEarnings();
 }
 
-// REQUIRES: pos >= 0
+// REQUIRES: pos >= 0, <list.size()
 // MODIFIES: this 
 // EFFECTS: remove this payment to the payment list by select the index position
 // of payment in the Payments List
 public void removePayment(int pos){
-    this.payments.remove(pos);
+    payments.get(pos).removeHandle();
+    payments.remove(pos);
     getBudgetLeft();
 }
 
-// REQUIRES: pos >= 0
+// REQUIRES: pos >= 0, < List.size()   
 // MODIFIES: this 
 // EFFECTS: remove this earning to the earning list by select the index position
 //of earning in the Earnings List
 public void removeEarning(int pos){
-    this.earnings.remove(pos);
+    earnings.get(pos).removeHandle();
+    earnings.remove(pos);
     getTotalEarnings();
 }
 
@@ -152,7 +154,7 @@ public void endCurrentRecord(){
 public double getBudgetLeft(){
     if(budget == 0){
         return 0;
-    }
+    } else{
     double budgetLeft = 0.0;
     budgetLeft = budget - getTotalPayments();
     if (budgetLeft < 0){
@@ -160,6 +162,8 @@ public double getBudgetLeft(){
     }
     getOutOfBudget();
     return budgetLeft;
+    }
+    
 }
 
 }
