@@ -13,7 +13,7 @@ public class Earning {
     private static double other = 0;
 
  
-    public Earning(String category, double amount){
+    public Earning(String category, double amount) {
         this.category = category;
         this.amount = amount;
         this.date = LocalDate.now();
@@ -21,24 +21,24 @@ public class Earning {
     }
 
     // EFFECTS: return the category of this earning
-    public String getCategory(){
+    public String getCategory() {
         return this.category;
     }
 
     // EFFECTS: return the amount of this earning
-    public double getAmount(){
+    public double getAmount() {
         return this.amount;
     }
 
     // EFFECTS: return the date that this earning been created.
-    public LocalDate getDate(){
+    public LocalDate getDate() {
         return this.date;
     }
 
     // MODIFIES: this class
     // EFFECTS: adds amount to correct category total
     private void addToCategory() {
-         switch (category.toLowerCase()) {
+        switch (category.toLowerCase()) {
             case "job":
                 job += amount;
                 break;
@@ -55,12 +55,12 @@ public class Earning {
     }
 
     // EFFECTS: remove the earning amount from specified category 
-    public void removeHandle(){
+    public void removeHandle() {
         removeCate(category, amount);
     }
 
-    private void removeCate(String category, double amount){
-         switch (category.toLowerCase()) {
+    private void removeCate(String category, double amount) {
+        switch (category.toLowerCase()) {
             case "job":
                 job -= amount;
                 break;
@@ -73,22 +73,22 @@ public class Earning {
             default:
                 other -= amount;
                 break;
-         }
+        }
     }
 
-    public static double getJobTotal(){
+    public static double getJobTotal() {
         return job;
     }
 
-    public static double getLottoTotal(){
+    public static double getLottoTotal() {
         return lotto;
     }
 
-    public static double getFinancialTotal(){
+    public static double getFinancialTotal() {
         return financial;
     }
 
-    public static double getOtherTotal(){
+    public static double getOtherTotal() {
         return other;
     }
 

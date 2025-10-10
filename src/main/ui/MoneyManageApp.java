@@ -9,13 +9,13 @@ import java.util.Scanner;
 
 // EFFECTS: A spending and earning result application that allows the user see
 // and help build the manage skill of money
-public class userReviewer {
+public class MoneyManageApp {
     private User user;
     private Scanner answer;
 
     private boolean isProgramRunning;
 
-    public userReviewer(){
+    public MoneyManageApp() {
         init();
         System.out.println("Welcome to the MoneyManage user Reviewer APP!");
         System.out.println("Enter your name: ");
@@ -32,20 +32,20 @@ public class userReviewer {
 
     // MODIFIES: this
     // EFFECTS: initialies the application with the start value
-    public void init(){
+    public void init() {
         this.answer = new Scanner(System.in);
         this.isProgramRunning = true;
     }
 
     // EFFECTS: displays and processes input for the main Menu
-    public void handleMenu(){
+    public void handleMenu() {
         displayMainMenu();
         String input = this.answer.nextLine();
         processMenuCommands(input);
     }
 
     // EFFECTS: displays a list of commands that can be used in the main menu
-    public void displayMainMenu(){
+    public void displayMainMenu() {
         System.out.println("Please select an option: \n");
         System.out.println("a: Set your account");
         System.out.println("b: Earning page");
@@ -56,9 +56,9 @@ public class userReviewer {
     }
 
     // EFFECTS: processes the user's imput in the main menu
-    public void processMenuCommands(String input){
+    public void processMenuCommands(String input) {
         printDivider();
-        switch(input.toLowerCase()){
+        switch (input.toLowerCase()) {
             case "a":
                 handleSetAccount();
                 break;
@@ -81,31 +81,31 @@ public class userReviewer {
     }
 
     // EFFECTS: displays and processes input for the set account Menu
-    public void handleSetAccount(){
+    public void handleSetAccount() {
         setAccountMenu();
         int input = 0;
-        while(!(input == 5)){
+        while (!(input == 5)) {
             input = this.answer.nextInt();
             processSetAccount(input);
         }
     }
 
     // EFFECTS: displays a list of commands that can be used in the setAccount menu
-    private void setAccountMenu(){
-            System.out.println("Accont Setting: \n");
-            System.out.println("1. Set name");
-            System.out.println("2. Set bank amount");
-            System.out.println("3. Set budget");
-            System.out.println("4. View current account info");
-            System.out.println("5. Back to main menu");
-            printDivider();
+    private void setAccountMenu() {
+        System.out.println("Accont Setting: \n");
+        System.out.println("1. Set name");
+        System.out.println("2. Set bank amount");
+        System.out.println("3. Set budget");
+        System.out.println("4. View current account info");
+        System.out.println("5. Back to main menu");
+        printDivider();
         
     }
 
     // EFFECTS: processes the user's imput in the main menu
-    public void processSetAccount(int input){
+    public void processSetAccount(int input) {
         printDivider();
-        switch(input){
+        switch (input) {
             case 1:
                 setName();
                 break;
@@ -130,7 +130,7 @@ public class userReviewer {
 
     // MODIFIES: user
     // EFFECTS: update user's name
-    private void setName(){
+    private void setName() {
         System.out.println("Enter new name: ");
         this.answer.nextLine();
         String name = answer.nextLine();
@@ -142,7 +142,7 @@ public class userReviewer {
 
     // MODIFIES: user
     // EFFECTS: update user's bankAmt
-    private void setBankAmt(){
+    private void setBankAmt() {
         System.out.println("Enter new bank amount: ");
         double amt = answer.nextDouble();
         user.setBankAmt(amt);
@@ -153,7 +153,7 @@ public class userReviewer {
 
     // MODIFIES: user
     // EFFECTS: updates the user's budget for current record
-    private void setBudget(){
+    private void setBudget() {
         System.out.println("Enter new budget: ");
         double budget = answer.nextDouble();
         user.setBudget(budget);
@@ -173,17 +173,17 @@ public class userReviewer {
     }
 
     // EFFECTS: displays and processes input for the earning Menu
-    public void earningPage(){
+    public void earningPage() {
         earningMenu();
         int input = 0;
-        while(!(input == 4)){
+        while (!(input == 4)) {
             input = this.answer.nextInt();
             processEarning(input);
         }
     }
 
     // EFFECTS: displays a list of commands that can be used in the earning menu
-    private void earningMenu(){
+    private void earningMenu() {
         System.out.println("Earning option: \n");
         System.out.println("1. Add Earning");
         System.out.println("2. Remove Earning");
@@ -193,9 +193,9 @@ public class userReviewer {
     }
     
     // EFFECTS: processes the user's imput in the earning menu
-    public void processEarning(int input){
+    public void processEarning(int input) {
         printDivider();
-        switch(input){
+        switch (input) {
             case 1:
                 addEarning();
                 break;
@@ -217,16 +217,14 @@ public class userReviewer {
 
     // MODIFIES: user
     // EFFECTS: let user add a new earning with category and amount
-    private void addEarning(){
-        double amount = 0.0;
-        String cate = "";
-        System.out.println("Enter earning amount: ");
-        amount = this.answer.nextDouble();
+    private void addEarning() {
         this.answer.nextLine();
         System.out.println("Choose from Job, Lotto, Financial");
         System.out.println("(any type not listed will be counted as Other).");
         System.out.println("Enter earning category:");
-        cate = this.answer.nextLine();
+        String cate = this.answer.nextLine();
+        System.out.println("Enter earning amount: ");
+        double amount = this.answer.nextDouble();
         user.addEarning(cate, amount);
         System.out.println("Earning added successfully!");
         System.out.println("Total Earnings: $" + user.getTotalEarnings());
@@ -236,21 +234,21 @@ public class userReviewer {
 
     // MODIFIES: user
     // EFFECTS: removes an earning by index
-    private void removeEarning(){
-        for (int i =0; i < user.getEarnings().size(); i++){
+    private void removeEarning() {
+        for (int i = 0; i < user.getEarnings().size(); i++) {
             Earning e = user.getEarnings().get(i);
             System.out.println((i + 1) + ". " 
-                + "Category: " + e.getCategory()
-                + "| Amount: $" + e.getAmount()
-                + "| Date: " + e.getDate());
+                    + "Category: " + e.getCategory()
+                    + "| Amount: $" + e.getAmount()
+                    + "| Date: " + e.getDate());
         }
 
         System.out.println("Enter number of earning you want to remove: ");
         int index = this.answer.nextInt();
-        if(index < 1 || index > user.getEarnings().size()){
+        if (index < 1 || index > user.getEarnings().size()) {
             System.out.println("Invalid index. Please try again");
-        } else{
-            user.removeEarning(index -1);
+        } else {
+            user.removeEarning(index - 1);
             System.out.println("Earning removed successfully!");
         }
         printDivider();
@@ -258,7 +256,7 @@ public class userReviewer {
     }
 
     // EFFECTS: show the currect earning report
-    private void seeEReport(){
+    private void seeEReport() {
         System.out.println("Here is your earning summary!!");
         System.out.println("Total Earnings: $" + user.getTotalEarnings());
         System.out.println("Earning by Category: ");
@@ -272,17 +270,17 @@ public class userReviewer {
 
 
         // EFFECTS: displays and processes input for the payment Menu
-    public void spendingPage(){
+    public void spendingPage() {
         paymentMenu();
         int input = 0;
-        while(!(input == 4)){
+        while (!(input == 4)) {
             input = this.answer.nextInt();
             processPayment(input);
         }
     }
 
     // EFFECTS: displays a list of commands that can be used in the payment menu
-    private void paymentMenu(){
+    private void paymentMenu() {
         System.out.println("Payment option: \n");
         System.out.println("1. Add Payment");
         System.out.println("2. Remove Payment");
@@ -292,9 +290,9 @@ public class userReviewer {
     }
     
     // EFFECTS: processes the user's imput in the payment menu
-    public void processPayment(int input){
+    public void processPayment(int input) {
         printDivider();
-        switch(input){
+        switch (input) {
             case 1:
                 addPayment();
                 break;
@@ -316,15 +314,15 @@ public class userReviewer {
 
     // MODIFIES: user
     // EFFECTS: let user add a new earning with category and amount
-    private void addPayment(){
-        System.out.println("Enter payment amount");
-        double amount = this.answer.nextDouble();
+    private void addPayment() {
         this.answer.nextLine();
         System.out.print("Choose from daily use, food, drink, entertainment ");
         System.out.println("transportation, studies, housing, beauty, cloth");
         System.out.println("(any type not listed will be counted as \"Other\").");
         System.out.println("Enter payment category");
         String category = this.answer.nextLine();
+        System.out.println("Enter payment amount");
+        double amount = this.answer.nextDouble();
         user.addPayment(category, amount);
         System.out.println("Payment added successfully!");
         System.out.println("Total Payments: $" + user.getTotalPayments());
@@ -335,21 +333,21 @@ public class userReviewer {
 
     // MODIFIES: user
     // EFFECTS: removes an earning by index
-    private void removePayment(){
-        for (int i =0; i < user.getPayments().size(); i++){
+    private void removePayment() {
+        for (int i = 0; i < user.getPayments().size(); i++) {
             Payment p = user.getPayments().get(i);
             System.out.println((i + 1) + ". " 
-                + "Category: " + p.getCategory()
-                + "| Amount: $" + p.getAmount()
-                + "| Date: " + p.getDate());
+                    + "Category: " + p.getCategory()
+                    + "| Amount: $" + p.getAmount()
+                    + "| Date: " + p.getDate());
         }
 
         System.out.println("Enter number of payment you want to remove: ");
         int index = this.answer.nextInt();
-        if(index < 1 || index > user.getPayments().size()){
+        if (index < 1 || index > user.getPayments().size()) {
             System.out.println("Invalid index. Please try again");
-        } else{
-            user.removePayment(index -1);
+        } else {
+            user.removePayment(index - 1);
             System.out.println("Payment removed successfully!");
             System.out.println("Budget Left: " + user.getBudgetLeft());
         }
@@ -358,7 +356,7 @@ public class userReviewer {
     }
 
     // EFFECTS: show the currect payment report
-    private void seePReport(){
+    private void seePReport() {
         System.out.println("Here is your payments summary!!");
         System.out.println("Total Payments: $" + user.getTotalPayments());
         System.out.println("Payment by Category: ");
@@ -394,12 +392,12 @@ public class userReviewer {
         user.endCurrentRecord();
         System.out.println("Current bank amount: $" + user.getBankAmt());
         if (user.getBankAmt() < 0) {
-           System.out.println("Warning: Your savings are below zero. You are broke!");
+            System.out.println("Warning: Your savings are below zero. You are broke!");
         }
-         System.out.println("All monthly earnings and payments have been cleared.");
+        System.out.println("All monthly earnings and payments have been cleared.");
         printDivider();
         handleMenu();
-}
+    }
 
     // EFFECTS: prints out a line of dashes to act as a divider
     private void printDivider() {

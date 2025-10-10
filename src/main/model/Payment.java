@@ -3,7 +3,7 @@ package model;
 import java.time.LocalDate;
 
 public class Payment {
-private String category;
+    private String category;
     private double amount;
     private LocalDate date;
 
@@ -18,7 +18,7 @@ private String category;
     private static double other = 0;
 
  
-    public Payment(String category, double amount){
+    public Payment(String category, double amount) {
         this.category = category;
         this.amount = amount;
         this.date = LocalDate.now();
@@ -26,120 +26,108 @@ private String category;
     }
 
     // EFFECTS: return the category of this payment
-    public String getCategory(){
+    public String getCategory() {
         return this.category;
     }
 
     // EFFECTS: return the amount of this payment
-    public double getAmount(){
+    public double getAmount() {
         return this.amount;
     }
 
     // EFFECTS: return the date that this payment been created.
-    public LocalDate getDate(){
+    public LocalDate getDate() {
         return this.date;
     }
 
     // MODIFIES: this 
     // EFFECTS: adds amount to correct category total
     private void addToCategory() {
-              switch (category.toLowerCase()) {
-            case "daily use":
-                dailyUse += amount;
+        switch (category.toLowerCase()) {
+            case "daily use": dailyUse += amount;
                 break;
             case "food":
             case "drink":
                 foodDrink += amount;
                 break;
-            case "entertainment":
-                enter += amount;
+            case "entertainment": enter += amount;
                 break;
-            case "transportation":
-                trans += amount;
+            case "transportation": trans += amount;
                 break;
-            case "studies":
-                studies += amount;
+            case "studies": studies += amount;
                 break;
-            case "housing":
-                housing += amount;
+            case "housing": housing += amount;
                 break;
             case "beauty":
             case "cloth":
                 beautyCloth += amount;
                 break;
-            default:
-                other += amount;
+            default: other += amount;
                 break;
         }
     }
 
     // EFFECTS: remove the earning amount from specified category 
-    public void removeHandle(){
+    public void removeHandle() {
         removeCate(category, amount);
     }
 
     // MODIFIES: this
     // EFFECTS: remove amount to correct category total
-    private void removeCate(String category, double amount){
-                      switch (category.toLowerCase()) {
-            case "daily use":
-                dailyUse -= amount;
+    private void removeCate(String category, double amount) {
+        switch (category.toLowerCase()) {
+            case "daily use": dailyUse -= amount;
                 break;
             case "food":
             case "drink":
                 foodDrink -= amount;
                 break;
-            case "entertainment":
-                enter -= amount;
+            case "entertainment": enter -= amount;
                 break;
-            case "transportation":
-                trans -= amount;
+            case "transportation": trans -= amount;
                 break;
-            case "studies":
-                studies -= amount;
+            case "studies": studies -= amount;
                 break;
-            case "housing":
-                housing -= amount;
+            case "housing": housing -= amount;
                 break;
             case "beauty":
             case "cloth":
                 beautyCloth -= amount;
                 break;
-            default:
-                other -= amount;
+            default: other -= amount;
                 break;
         }
     }
 
-    public static double getDailyTotal(){
+    public static double getDailyTotal() {
         return dailyUse;
     }
 
-    public static double getFoodDrinkTotal(){
+    public static double getFoodDrinkTotal() {
         return foodDrink;
     }
 
-    public static double getEntertainmentTotal(){
+    public static double getEntertainmentTotal() {
         return enter;
     }
 
-    public static double getTransportationTotal(){
+    public static double getTransportationTotal() {
         return trans;
     }
 
-    public static double getStudiesTotal(){
+    public static double getStudiesTotal() {
         return studies;
     }
 
-    public static double getHousingTotal(){
+    public static double getHousingTotal() {
         return housing;
     }
 
-    public static double getBeautyClothTotal(){
+    public static double getBeautyClothTotal() {
         return beautyCloth;
     }
 
-    public static double getOtherTotal(){
+    public static double getOtherTotal() {
         return other;
     }
 
