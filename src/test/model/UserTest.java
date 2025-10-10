@@ -115,13 +115,11 @@ public class UserTest {
         userA.addPayment("Food",300);
         userA.addEarning("Job",100);
         userA.addEarning("Other",400);
-        assertTrue(userA.getOutOfBudget());
         userA.endCurrentRecord();
         assertEquals(8400, userA.getBankAmt());
         assertTrue(userA.getPayments().isEmpty());
         assertTrue(userA.getEarnings().isEmpty());
         assertFalse(userA.getBroke());
-        assertFalse(userA.getOutOfBudget());
         assertEquals(2000, userA.getBudget());
 
         userB.addPayment("Housing",1800);
@@ -137,13 +135,11 @@ public class UserTest {
         userC.addPayment("Food",300);
         userC.addEarning("Job",100);
         userC.addEarning("Other",400);
-        assertFalse(userC.getOutOfBudget());
         userC.endCurrentRecord();
         assertEquals(-1600, userC.getBankAmt());
         assertTrue(userC.getPayments().isEmpty());
         assertTrue(userC.getEarnings().isEmpty());
         assertTrue(userC.getBroke());
-        assertFalse(userC.getOutOfBudget());
         assertEquals(20000, userC.getBudget());
     }
 
@@ -153,12 +149,10 @@ public class UserTest {
         userA.addPayment("Housing",800);
         userA.addPayment("Food",20);
         assertEquals(1180, userA.getBudgetLeft());
-        assertFalse(userA.getOutOfBudget());
 
         userB.addPayment("Housing",800);
         userB.addPayment("Food",20);
         assertEquals(0, userB.getBudgetLeft());
-        assertFalse(userB.getOutOfBudget());
 
 
     }

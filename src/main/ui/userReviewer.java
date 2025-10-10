@@ -328,6 +328,7 @@ public class userReviewer {
         user.addPayment(category, amount);
         System.out.println("Payment added successfully!");
         System.out.println("Total Payments: $" + user.getTotalPayments());
+        System.out.println("Budget Left: " + user.getBudgetLeft());
         printDivider();
         paymentMenu();
     }
@@ -350,6 +351,7 @@ public class userReviewer {
         } else{
             user.removePayment(index -1);
             System.out.println("Payment removed successfully!");
+            System.out.println("Budget Left: " + user.getBudgetLeft());
         }
         printDivider();
         paymentMenu();
@@ -368,6 +370,7 @@ public class userReviewer {
         System.out.println("Housing: $" + Payment.getHousingTotal());
         System.out.println("Beauty & Clothes: $" + Payment.getBeautyClothTotal());
         System.out.println("Other: $" + Payment.getOtherTotal());
+        System.out.println("Budget Left: " + user.getBudgetLeft());
         printDivider();
         paymentMenu();
     }

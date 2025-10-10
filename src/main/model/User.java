@@ -8,7 +8,6 @@ public class User {
 private String name;
 private double budget;
 private double bankAmt;
-private boolean outOfBudget;
 private boolean broke;
 
 
@@ -20,7 +19,6 @@ public User(String name, double bankAmt){
     this.name = name;
     this.bankAmt = bankAmt;
     this.budget = 0.0;
-    this.outOfBudget = false;
     this.broke = false;
     this.payments = new ArrayList<>();
     this.earnings = new ArrayList<>();
@@ -56,10 +54,6 @@ public double getBankAmt(){
     return this.bankAmt;
 }
 
-public boolean getOutOfBudget(){
-    return this.outOfBudget;
-}
-
 public boolean getBroke(){
     return this.broke;
 }
@@ -80,7 +74,6 @@ public List<Earning> getEarnings(){
 public void addPayment(String cate, double amt){
     Payment p = new Payment(cate, amt);
     this.payments.add(p);
-    getBudgetLeft();
 }
 // REQUIRES: amt > 0, category of payment must be one in the Earnings option
 // MODIFIES: this 
@@ -88,7 +81,6 @@ public void addPayment(String cate, double amt){
 public void addEarning(String cate, double amt){
     Earning e = new Earning(cate, amt);
     this.earnings.add(e);
-    getTotalEarnings();
 }
 
 // REQUIRES: pos >= 0, <list.size()
@@ -98,7 +90,6 @@ public void addEarning(String cate, double amt){
 public void removePayment(int pos){
     payments.get(pos).removeHandle();
     payments.remove(pos);
-    getBudgetLeft();
 }
 
 // REQUIRES: pos >= 0, < List.size()   
@@ -108,7 +99,6 @@ public void removePayment(int pos){
 public void removeEarning(int pos){
     earnings.get(pos).removeHandle();
     earnings.remove(pos);
-    getTotalEarnings();
 }
 
 // EFFECTS: returns the total amount of all payments made by the user
@@ -145,7 +135,6 @@ public void endCurrentRecord(){
     earnings.clear();
     Earning.resetCategoryTotal();
     Payment.resetCategoryTotal();
-    this.outOfBudget = false;
 
 }
 
@@ -157,10 +146,6 @@ public double getBudgetLeft(){
     } else{
     double budgetLeft = 0.0;
     budgetLeft = budget - getTotalPayments();
-    if (budgetLeft < 0){
-        outOfBudget = true;
-    }
-    getOutOfBudget();
     return budgetLeft;
     }
     
