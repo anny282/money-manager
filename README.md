@@ -18,4 +18,6 @@ The main users of this application will be students and young adults who are sta
 - As a user, I want to be able to view my list of earnings.  
 - As a user, I want to be able to view the amount of my budget left.  
 - As a user, I want to be able to end this record and restart for a new record.  
-- As a user, I want to be able to view the breakdown of my spending and earnings by category.  
+- As a user, I want to be able to view the breakdown of my spending and earnings by category.
+- As a user, I want to be able to save my financial data to a file so that I can keep all my earnings, payments, and budget information for future sessions.
+- As a user, I want to be able to load my previously saved financial data from a file so that I can continue managing my budget and earnings exactly where I left off.  
