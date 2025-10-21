@@ -1,0 +1,8 @@
+{
+    "name": "Anny",
+    "bankAmt": 0.0,
+    "budget": 0.0,
+    "broke": false,
+    "earnings": [],
+    "payments": []
+}
