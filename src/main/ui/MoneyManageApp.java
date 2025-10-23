@@ -6,7 +6,6 @@ import model.User;
 
 import java.util.Scanner;
 
-
 // EFFECTS: A spending and earning result application that allows the user see
 // and help build the manage skill of money
 public class MoneyManageApp {
