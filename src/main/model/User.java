@@ -1,9 +1,15 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class User {
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
+public class User implements Writable{
     private String name;
     private double budget;
     private double bankAmt;
@@ -150,5 +156,29 @@ public class User {
         }
     
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("bankAmt", bankAmt);
+        json.put("budget", budget);
+        json.put("earnings", earningsToJson());
+        json.put("Payments", paymentsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns earnings in this workroom as a JSON array
+    private JSONArray earningsToJson() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'earningsToJson'");
+    }
+
+    // EFFECTS: returns payments in this workroom as a JSON array
+    private JSONArray paymentsToJson() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'paymentsToJson'");
+    }
+
 
 }

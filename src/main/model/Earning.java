@@ -2,7 +2,11 @@ package model;
 
 import java.time.LocalDate;
 
-public class Earning {
+import org.json.JSONObject;
+
+import persistence.Writable;
+
+public class Earning implements Writable{
     private String category;
     private double amount;
     private LocalDate date;
@@ -99,6 +103,12 @@ public class Earning {
         lotto = 0;
         financial = 0;
         other = 0;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'toJson'");
     }
 
 }
