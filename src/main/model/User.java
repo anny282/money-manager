@@ -170,14 +170,22 @@ public class User implements Writable{
 
     // EFFECTS: returns earnings in this workroom as a JSON array
     private JSONArray earningsToJson() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'earningsToJson'");
+        JSONArray jsonArray = new JSONArray();
+
+        for (Earning e : earnings) {
+            jsonArray.put(e.toJson());
+        }
+        return jsonArray;
     }
 
     // EFFECTS: returns payments in this workroom as a JSON array
     private JSONArray paymentsToJson() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'paymentsToJson'");
+        JSONArray jsonArray = new JSONArray();
+
+        for (Payment p : payments) {
+            jsonArray.put(p.toJson());
+        }
+        return jsonArray;
     }
 
 

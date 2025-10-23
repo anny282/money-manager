@@ -151,8 +151,11 @@ public class Payment implements Writable{
 
     @Override
     public JSONObject toJson() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'toJson'");
+        JSONObject json = new JSONObject();
+        json.put("category", category);
+        json.put("amount", amount);
+        json.put("date", date.toString());
+        return json;
     }
 
 

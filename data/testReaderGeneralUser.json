@@ -1,5 +1,5 @@
 {
-    "name": "Anny",
+    "name": "Annyw",
     "bankAmt": 2000.0,
     "budget": 500.0,
     "broke": false,
@@ -16,11 +16,6 @@
         }
     ],
     "payments": [
-        {
-            "category": "Groceries",
-            "amount": 100.0,
-            "date": "2025-10-07"
-        },
         {
             "category": "Rent",
             "amount": 800.0,
