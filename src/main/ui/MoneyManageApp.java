@@ -3,15 +3,22 @@ package ui;
 import model.Earning;
 import model.Payment;
 import model.User;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
 // EFFECTS: A spending and earning result application that allows the user see
 // and help build the manage skill of money
 public class MoneyManageApp {
+    private static final String JSON_STORE = "./data/user.json";
     private User user;
     private Scanner answer;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     private boolean isProgramRunning;
 
@@ -35,6 +42,8 @@ public class MoneyManageApp {
     public void init() {
         this.answer = new Scanner(System.in);
         this.isProgramRunning = true;
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: displays and processes input for the main Menu
@@ -52,6 +61,8 @@ public class MoneyManageApp {
         System.out.println("c: Spending page");
         System.out.println("d: End this report");
         System.out.println("e: Quit");
+        System.out.println("s: save data to file");
+        System.out.println("l: load data from file");
         printDivider();
     }
 
@@ -74,6 +85,11 @@ public class MoneyManageApp {
             case "e":
                 quitApplication();
                 break;
+            case "s":
+                saveUser();
+                break;
+            case "l":
+                loadUser();
             default:
                 System.out.println("Invalid option inputted. Please try again.");
         }
@@ -411,6 +427,29 @@ public class MoneyManageApp {
         System.out.println("Thanks for using the Flashcard Reviewer app!");
         System.out.println("Have a good day!");
         this.isProgramRunning = false;
+    }
+
+    // EFFECTS: saves the workroom to file
+    private void saveUser() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(user);
+            jsonWriter.close();
+            System.out.println("Saved " + user.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadUser() {
+        try {
+            user = jsonReader.read();
+            System.out.println("Loaded " + user.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 
