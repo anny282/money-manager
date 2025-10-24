@@ -23,16 +23,16 @@ public class PaymentTest {
 
     @BeforeEach
     void runBefore(){
-        paymentA = new Payment("Housing", 1000);
-        paymentB = new Payment("Beauty", 100);
-        paymentC = new Payment("Food",200);
-        paymentD = new Payment("Daily use", 500);
-        paymentE = new Payment("Drink", 7);
-        paymentF = new Payment("EnTerTainment", 40);
-        paymentG = new Payment("TRANSPORTATION", 20);
-        paymentH = new Payment("studies",30);
-        paymentI = new Payment("Cloth",100);
-        paymentW = new Payment("Lotto",5);
+        paymentA = new Payment("Housing", 1000, LocalDate.now());
+        paymentB = new Payment("Beauty", 100, LocalDate.now());
+        paymentC = new Payment("Food",200, LocalDate.now());
+        paymentD = new Payment("Daily use", 500, LocalDate.now());
+        paymentE = new Payment("Drink", 7, LocalDate.now());
+        paymentF = new Payment("EnTerTainment", 40, LocalDate.now());
+        paymentG = new Payment("TRANSPORTATION", 20, LocalDate.now());
+        paymentH = new Payment("studies",30, LocalDate.now());
+        paymentI = new Payment("Cloth",100, LocalDate.now());
+        paymentW = new Payment("Lotto",5, LocalDate.now());
     }
 
     @Test

@@ -17,10 +17,10 @@ public class Earning implements Writable{
     private static double other = 0;
 
  
-    public Earning(String category, double amount) {
+    public Earning(String category, double amount, LocalDate date) {
         this.category = category;
         this.amount = amount;
-        this.date = LocalDate.now();
+        this.date = date;
         addToCategory();
     }
 

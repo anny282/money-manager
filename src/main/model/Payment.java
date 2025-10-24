@@ -22,10 +22,10 @@ public class Payment implements Writable{
     private static double other = 0;
 
  
-    public Payment(String category, double amount) {
+    public Payment(String category, double amount, LocalDate date) {
         this.category = category;
         this.amount = amount;
-        this.date = LocalDate.now();
+        this.date = date;
         addToCategory();
     }
 

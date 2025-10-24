@@ -19,12 +19,12 @@ public class EarningTest {
     @BeforeEach
     void runBefore(){
         Earning.resetCategoryTotal();
-        earningA = new Earning("Job", 1000);
-        earningB = new Earning("Other", 100);
-        earningC = new Earning("Job",200);
-        earningD = new Earning("Financial", 500);
-        earningE = new Earning("Lotto", 30);
-        earningF = new Earning("Award",300);
+        earningA = new Earning("Job", 1000, LocalDate.now());
+        earningB = new Earning("Other", 100, LocalDate.now());
+        earningC = new Earning("Job",200, LocalDate.now());
+        earningD = new Earning("Financial", 500, LocalDate.now());
+        earningE = new Earning("Lotto", 30, LocalDate.now());
+        earningF = new Earning("Award",300, LocalDate.now());
     }
 
     @Test

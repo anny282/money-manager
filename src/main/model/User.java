@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -46,6 +47,7 @@ public class User implements Writable{
     public void setBankAmt(double bankAmt) {
         this.bankAmt = bankAmt;
     }
+    
 
     public String getName() {
         return this.name;
@@ -76,16 +78,16 @@ public class User implements Writable{
 // MODIFIES: this 
 // EFFECTS: add this payment to the payment list, return the budgetLeft
 // Warning if out of buget
-    public void addPayment(String cate, double amt) {
-        Payment p = new Payment(cate, amt);
+    public void addPayment(String cate, double amt, LocalDate date) {
+        Payment p = new Payment(cate, amt, date);
         this.payments.add(p);
     }
     
 // REQUIRES: amt > 0, category of payment must be one in the Earnings option
 // MODIFIES: this 
 // EFFECTS: add this earning to the earnings list
-    public void addEarning(String cate, double amt) {
-        Earning e = new Earning(cate, amt);
+    public void addEarning(String cate, double amt, LocalDate date) {
+        Earning e = new Earning(cate, amt, date);
         this.earnings.add(e);
     }
 
@@ -164,7 +166,7 @@ public class User implements Writable{
         json.put("bankAmt", bankAmt);
         json.put("budget", budget);
         json.put("earnings", earningsToJson());
-        json.put("Payments", paymentsToJson());
+        json.put("payments", paymentsToJson());
         return json;
     }
 

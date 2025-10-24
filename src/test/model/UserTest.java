@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -55,14 +57,14 @@ public class UserTest {
     @Test
     void testAddPayment(){
         assertTrue(userA.getPayments().isEmpty());
-        userA.addPayment("Housing",800);
+        userA.addPayment("Housing",800, LocalDate.now());
         assertEquals(1, userA.getPayments().size());
 
     }
 
     @Test
     void testAddEarning(){
-        userA.addEarning("Job",1000);
+        userA.addEarning("Job",1000, LocalDate.now());
         assertEquals(1, userA.getEarnings().size());
 
     }
@@ -71,9 +73,9 @@ public class UserTest {
     void testRemovePayment(){
         assertEquals(0, userA.getPayments().size());
         assertTrue(userA.getPayments().isEmpty());
-        userA.addPayment("Housing",800);
+        userA.addPayment("Housing",800, LocalDate.now());
         assertEquals(1, userA.getPayments().size());
-        userA.addPayment("Food",20);
+        userA.addPayment("Food",20, LocalDate.now());
         assertEquals(2, userA.getPayments().size());
         userA.removePayment(0);
         assertEquals(1, userA.getPayments().size());
@@ -82,9 +84,9 @@ public class UserTest {
     @Test
     void testRemoveEarning(){
         assertEquals(0, userA.getEarnings().size());
-        userA.addEarning("Job",1000);
+        userA.addEarning("Job",1000, LocalDate.now());
         assertEquals(1, userA.getEarnings().size());
-        userA.addEarning("Other",400);
+        userA.addEarning("Other",400, LocalDate.now());
         assertEquals(2, userA.getEarnings().size());
         userA.removeEarning(0);
         assertEquals(1, userA.getEarnings().size());
@@ -92,8 +94,8 @@ public class UserTest {
 
     @Test
     void testGetTotalPayments(){
-        userA.addPayment("Housing",800);
-        userA.addPayment("Food",20);
+        userA.addPayment("Housing",800, LocalDate.now());
+        userA.addPayment("Food",20, LocalDate.now());
         assertEquals(820, userA.getTotalPayments());
         userA.removePayment(1);
         assertEquals(800, userA.getTotalPayments());
@@ -101,8 +103,8 @@ public class UserTest {
 
     @Test
     void testGetTotalEarnings(){
-        userA.addEarning("Job",1000);
-        userA.addEarning("Other",400);
+        userA.addEarning("Job",1000, LocalDate.now());
+        userA.addEarning("Other",400, LocalDate.now());
         assertEquals(1400, userA.getTotalEarnings());
         userA.removeEarning(1);
         assertEquals(1000, userA.getTotalEarnings());
@@ -111,10 +113,10 @@ public class UserTest {
     @Test
     void testEndCurrentRecord(){
         userA.setBudget(2000);
-        userA.addPayment("Housing",1800);
-        userA.addPayment("Food",300);
-        userA.addEarning("Job",100);
-        userA.addEarning("Other",400);
+        userA.addPayment("Housing",1800, LocalDate.now());
+        userA.addPayment("Food",300, LocalDate.now());
+        userA.addEarning("Job",100, LocalDate.now());
+        userA.addEarning("Other",400, LocalDate.now());
         userA.endCurrentRecord();
         assertEquals(8400, userA.getBankAmt());
         assertTrue(userA.getPayments().isEmpty());
@@ -122,19 +124,19 @@ public class UserTest {
         assertFalse(userA.getBroke());
         assertEquals(2000, userA.getBudget());
 
-        userB.addPayment("Housing",1800);
-        userB.addPayment("Food",300);
-        userB.addEarning("Job",100);
-        userB.addEarning("Other",400);
+        userB.addPayment("Housing",1800, LocalDate.now());
+        userB.addPayment("Food",300, LocalDate.now());
+        userB.addEarning("Job",100, LocalDate.now());
+        userB.addEarning("Other",400, LocalDate.now());
         userB.endCurrentRecord();
         assertTrue(userB.getBroke());
         assertEquals(-1200,userB.getBankAmt());
 
         userC.setBudget(20000);
-        userC.addPayment("Housing",1800);
-        userC.addPayment("Food",300);
-        userC.addEarning("Job",100);
-        userC.addEarning("Other",400);
+        userC.addPayment("Housing",1800, LocalDate.now());
+        userC.addPayment("Food",300, LocalDate.now());
+        userC.addEarning("Job",100, LocalDate.now());
+        userC.addEarning("Other",400, LocalDate.now());
         userC.endCurrentRecord();
         assertEquals(-1600, userC.getBankAmt());
         assertTrue(userC.getPayments().isEmpty());
@@ -146,12 +148,12 @@ public class UserTest {
     @Test
     void testgetBudgetLeft(){
         userA.setBudget(2000);
-        userA.addPayment("Housing",800);
-        userA.addPayment("Food",20);
+        userA.addPayment("Housing",800, LocalDate.now());
+        userA.addPayment("Food",20, LocalDate.now());
         assertEquals(1180, userA.getBudgetLeft());
 
-        userB.addPayment("Housing",800);
-        userB.addPayment("Food",20);
+        userB.addPayment("Housing",800, LocalDate.now());
+        userB.addPayment("Food",20, LocalDate.now());
         assertEquals(0, userB.getBudgetLeft());
 
 
