@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 import persistence.Writable;
 
-public class Payment implements Writable{
+public class Payment implements Writable {
     private String category;
     private double amount;
     private LocalDate date;

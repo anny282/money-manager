@@ -49,11 +49,8 @@ public class JsonReader {
         String name = jsonObject.getString("name");
         double bankAmt = jsonObject.getDouble("bankAmt");
         User user = new User(name, bankAmt);
-
-
-    if (jsonObject.has("budget")) {
         user.setBudget(jsonObject.getDouble("budget"));
-    }
+    
         addEarnings(user, jsonObject);
         addPayments(user, jsonObject);
 
@@ -87,8 +84,8 @@ public class JsonReader {
         for (Object json : jsonArray) {
             JSONObject nextPayment = (JSONObject) json;
             addPayment(user, nextPayment);
+        }
     }
-}
 
     // MODIFIES: user
     // EFFECTS: parses payment from JSON object and adds them to user

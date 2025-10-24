@@ -22,7 +22,7 @@ public class PaymentTest {
     private Payment paymentW;
 
     @BeforeEach
-    void runBefore(){
+    void runBefore() {
         paymentA = new Payment("Housing", 1000, LocalDate.now());
         paymentB = new Payment("Beauty", 100, LocalDate.now());
         paymentC = new Payment("Food",200, LocalDate.now());
@@ -36,14 +36,14 @@ public class PaymentTest {
     }
 
     @Test
-    void testConstructor(){
+    void testConstructor() {
         assertEquals("Housing", paymentA.getCategory());
         assertEquals(1000, paymentA.getAmount());
         assertEquals(LocalDate.now(), paymentA.getDate());
     }
 
     @Test
-    void testAddToCategory(){
+    void testAddToCategory() {
         assertEquals(1000, Payment.getHousingTotal());
         assertEquals(5, Payment.getOtherTotal());
         assertEquals(200, Payment.getBeautyClothTotal());
@@ -55,7 +55,7 @@ public class PaymentTest {
     }
 
     @Test
-    void testRemoveCate(){
+    void testRemoveCate() {
         paymentI.removeHandle();
         paymentW.removeHandle();
         paymentG.removeHandle();
@@ -73,7 +73,7 @@ public class PaymentTest {
     }
 
     @Test
-    void testResetCategoryTotal(){
+    void testResetCategoryTotal() {
         Payment.resetCategoryTotal();
         assertEquals(0, Payment.getHousingTotal());
         assertEquals(0, Payment.getOtherTotal());

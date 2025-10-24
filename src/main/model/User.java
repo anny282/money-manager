@@ -2,7 +2,6 @@ package model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -10,7 +9,7 @@ import org.json.JSONObject;
 
 import persistence.Writable;
 
-public class User implements Writable{
+public class User implements Writable {
     private String name;
     private double budget;
     private double bankAmt;
