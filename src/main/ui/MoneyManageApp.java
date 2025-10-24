@@ -4,6 +4,7 @@ import model.Earning;
 import model.Payment;
 import model.User;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 // EFFECTS: A spending and earning result application that allows the user see
@@ -224,7 +225,7 @@ public class MoneyManageApp {
         String cate = this.answer.nextLine();
         System.out.println("Enter earning amount: ");
         double amount = this.answer.nextDouble();
-        user.addEarning(cate, amount);
+        user.addEarning(cate, amount, LocalDate.now());
         System.out.println("Earning added successfully!");
         System.out.println("Total Earnings: $" + user.getTotalEarnings());
         printDivider();
@@ -322,7 +323,7 @@ public class MoneyManageApp {
         String category = this.answer.nextLine();
         System.out.println("Enter payment amount");
         double amount = this.answer.nextDouble();
-        user.addPayment(category, amount);
+        user.addPayment(category, amount, LocalDate.now());
         System.out.println("Payment added successfully!");
         System.out.println("Total Payments: $" + user.getTotalPayments());
         System.out.println("Budget Left: " + user.getBudgetLeft());
