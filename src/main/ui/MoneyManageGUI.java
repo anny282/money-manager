@@ -20,8 +20,8 @@ public class MoneyManageGUI extends JFrame {
     public static final int EARNING_TAB_INDEX = 2;
     public static final int SPENDING_TAB_INDEX = 3;
 
-    public static final int WIDTH = 1000;
-    public static final int HEIGHT = 800;
+    public static final int WIDTH = 700;
+    public static final int HEIGHT = 600;
     private JTabbedPane sidebar;
     private User user;
 

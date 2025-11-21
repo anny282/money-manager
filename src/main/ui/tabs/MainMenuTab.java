@@ -23,19 +23,25 @@ public class MainMenuTab extends Tab {
         gbc.insets = new Insets(10, 10, 10, 10);
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridwidth = 2;
+        gbc.gridwidth = 4;
 
         addLabels(gbc);
+
         addButtons(gbc);
     }
 
     // EFFECTS: initializes and adds welcome and balance labels
     private void addLabels(GridBagConstraints gbc) {
-        gbc.gridx = 0;
+        gbc.gridx = 1;
         gbc.gridy = 0;
+
+        JLabel logo = createLogoLabel();
+        add(logo,gbc);
+        gbc.gridy++;
 
         welcomeLabel = new JLabel("Welcome, " + getController().getUser().getName() + "!");
         welcomeLabel.setFont(new Font("SansSerif", Font.BOLD, 20));
+        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.CENTER;
         add(welcomeLabel, gbc);
 
@@ -53,7 +59,7 @@ public class MainMenuTab extends Tab {
     // EFFECTS: initializes and adds all buttons in a 2x2 grid
     private void addButtons(GridBagConstraints gbc) {
         JPanel buttonPanel = new JPanel(new GridLayout(1, 3, 10, 10));
-        buttonPanel.setPreferredSize(new Dimension(300, 100));
+        buttonPanel.setPreferredSize(new Dimension(400, 50));
 
         createSaveButton();
         createLoadButton();
@@ -63,6 +69,7 @@ public class MainMenuTab extends Tab {
         buttonPanel.add(loadButton);
         buttonPanel.add(endButton);
 
+        gbc.gridx = 1;
         gbc.gridy += 2;
         add(buttonPanel, gbc);
     }
@@ -83,6 +90,16 @@ public class MainMenuTab extends Tab {
     private void createEndButton() {
         endButton = new JButton("End Record");
         endButton.addActionListener(e -> endReport());
+    }
+
+    private JLabel createLogoLabel() {
+        ImageIcon icon = new ImageIcon("./data/logo.png");
+        Image scaled = icon.getImage().getScaledInstance(200, 120, Image.SCALE_SMOOTH);
+        icon = new ImageIcon(scaled);
+
+        JLabel logoLabel = new JLabel(icon);
+        logoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        return logoLabel;
     }
 
     // EFFECTS: saves user through controller and updates balance label

@@ -41,14 +41,17 @@ public class ProfileTab extends Tab {
         gbc.gridy = 0;
 
         nameLabel = new JLabel("Name: " + user.getName());
+        nameLabel.setFont(new Font("SansSerif", Font.PLAIN, 20));
         add(nameLabel, gbc);
 
         gbc.gridy++;
         bankLabel = new JLabel("Bank Amout: $ " + user.getBankAmt());
+        bankLabel.setFont(new Font("SansSerif", Font.PLAIN, 20));
         add(bankLabel, gbc);
 
         gbc.gridy++;
         budgetLabel = new JLabel("Budget: $ " + user.getBudget());
+        budgetLabel.setFont(new Font("SansSerif", Font.PLAIN, 20));
         add(budgetLabel, gbc);
     }
 

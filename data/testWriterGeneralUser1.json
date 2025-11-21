@@ -1,19 +1,19 @@
 {
     "earnings": [
         {
-            "date": "2025-10-24",
+            "date": "2025-11-20",
             "amount": 20,
             "category": "lotto"
         },
         {
-            "date": "2025-10-24",
+            "date": "2025-11-20",
             "amount": 200,
             "category": "job"
         }
     ],
     "bankAmt": 200,
     "payments": [{
-        "date": "2025-10-24",
+        "date": "2025-11-20",
         "amount": 1000,
         "category": "rent"
     }],

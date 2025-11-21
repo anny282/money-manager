@@ -1,29 +1,7 @@
 {
-    "earnings": [
-        {
-            "date": "2025-10-24",
-            "amount": 100,
-            "category": "job"
-        },
-        {
-            "date": "2025-10-24",
-            "amount": 902,
-            "category": "djmekwl"
-        }
-    ],
+    "earnings": [],
     "bankAmt": 200,
-    "payments": [
-        {
-            "date": "2025-10-24",
-            "amount": 20,
-            "category": "food"
-        },
-        {
-            "date": "2025-10-24",
-            "amount": 90,
-            "category": "daily use"
-        }
-    ],
-    "name": "anny",
+    "payments": [],
+    "name": "Xindy",
     "budget": 0
 }
