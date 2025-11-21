@@ -67,6 +67,7 @@ public class MoneyManageApp {
     }
 
     // EFFECTS: processes the user's imput in the main menu
+    @SuppressWarnings("methodlength")
     public void processMenuCommands(String input) {
         printDivider();
         switch (input.toLowerCase()) {
@@ -90,6 +91,7 @@ public class MoneyManageApp {
                 break;
             case "l":
                 loadUser();
+                break;
             default:
                 System.out.println("Invalid option inputted. Please try again.");
         }
