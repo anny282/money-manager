@@ -4,6 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import model.Event;
+import model.EventLog;
+
 
 import model.User;
 import persistence.JsonWriter;
@@ -47,6 +53,13 @@ public class MoneyManageGUI extends JFrame {
         add(sidebar);
 
         setVisible(true);
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                printEventLog();
+            }
+        });
     }
 
     // MODIFIES: this
@@ -167,6 +180,22 @@ public class MoneyManageGUI extends JFrame {
         SpendingTab spending = (SpendingTab) sidebar.getComponentAt(SPENDING_TAB_INDEX);
         spending.refreshSummary();
     }
+
+
+
+
+
+    private void printEventLog() {
+        for (Event event : EventLog.getInstance()) {
+            System.out.println(event);
+            System.out.println("----------------------------");
+        }
+    }
+
+
+
+
+
 }
 
 

@@ -1,8 +1,11 @@
 package persistence;
 
 import model.Earning;
+import model.EventLog;
 import model.Payment;
 import model.User;
+import model.Event;
+import model.EventLog;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -30,7 +33,10 @@ public class JsonReader {
     public User read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
+        EventLog.getInstance().logEvent(
+                new Event("User data loaded to file."));
         return parseUser(jsonObject);
+        
     }
 
     // EFFECTS: read source file as string and returns it

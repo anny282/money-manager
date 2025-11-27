@@ -1,7 +1,11 @@
 {
-    "earnings": [],
-    "bankAmt": 200,
+    "earnings": [{
+        "date": "2025-11-26",
+        "amount": 900000,
+        "category": "Lotto"
+    }],
+    "bankAmt": 900,
     "payments": [],
-    "name": "Xindy",
-    "budget": 0
+    "name": "p",
+    "budget": 7000
 }

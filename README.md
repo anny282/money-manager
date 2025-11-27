@@ -35,3 +35,47 @@ The main users of this application will be students and young adults who are sta
 - By opening the Main Menu tab and selecting the Save Record button, you can store the current state of your app.  This creates a JSON file with the user's earnings, spendings, and profile details.
 
 - By opening the Main Menu tab and selecting the Load Record button, you can reload the state of my program.  The user's data is restored into the GUI by reading the saved JSON file.
+
+# Phase 4: Task 2
+Wed Nov 26 23:26:18 PST 2025
+User name changed to: p
+----------------------------
+Wed Nov 26 23:26:21 PST 2025
+Bank amount updated to $900.0
+----------------------------
+Wed Nov 26 23:26:25 PST 2025
+Budget set to $7000.0
+----------------------------
+Wed Nov 26 23:26:32 PST 2025
+Earning added: Job, $700.0
+----------------------------
+Wed Nov 26 23:26:37 PST 2025
+Earning added: Lotto, $900000.0
+----------------------------
+Wed Nov 26 23:26:40 PST 2025
+Earning removed at index: 0
+----------------------------
+Wed Nov 26 23:26:46 PST 2025
+User data saved to file.
+----------------------------
+Wed Nov 26 23:26:55 PST 2025
+Spending added: Food and Drink, $765.0
+----------------------------
+Wed Nov 26 23:27:04 PST 2025
+Spending added: Housing, $1212.0
+----------------------------
+Wed Nov 26 23:27:06 PST 2025
+Spending removed at index: 0
+----------------------------
+Wed Nov 26 23:27:09 PST 2025
+Monthly record ended. Bank updated.
+----------------------------
+Wed Nov 26 23:27:11 PST 2025
+User data loaded to file.
+----------------------------
+Wed Nov 26 23:27:11 PST 2025
+Budget set to $7000.0
+----------------------------
+Wed Nov 26 23:27:11 PST 2025
+Earning added: Lotto, $900000.0
+----------------------------
