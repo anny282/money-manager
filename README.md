@@ -69,7 +69,7 @@ Spending removed at index: 0
 ----------------------------
 Wed Nov 26 23:27:09 PST 2025
 Monthly record ended. Bank updated.
-----------------------------
+---------------------------- 
 Wed Nov 26 23:27:11 PST 2025
 User data loaded to file.
 ----------------------------
@@ -79,3 +79,11 @@ Budget set to $7000.0
 Wed Nov 26 23:27:11 PST 2025
 Earning added: Lotto, $900000.0
 ----------------------------
+
+
+# Phase 4: Task 3
+
+If I had more time to work on this project, one refactoring I would apply is to reduce duplication between the EarningTab and SpendingTab classes. Currently, both tabs contain very similar logic for displaying category summaries, handling add and delete panels, and refreshing the UI after changes. I would refactor this by introducing an abstract superclass such as AbstractTransactionTab that encapsulates the shared behavior (for example, building summaries, toggling add/delete panels, and refreshing lists). EarningTab and SpendingTab would then extend this class and only provide category-specific details. This change would reduce duplicated code, make the system easier to maintain, and minimize errors when modifying shared functionality.
+
+Another refactoring I would consider is improving the visual design and structure of the user interface. Currently, many buttons share similar styles but are created independently in each tab. With more time, I would refactor the button creation into reusable helper methods or utility classes so that all buttons share consistent styling (such as font, color, and size). I would also replace some plain-text buttons with more visual signals, such as icons or color-coded buttons (for example, red for delete and green for add), to improve usability and make the interface more intuitive and visually appealing. This refactoring would enhance the overall user experience without changing the core functionality of the application.
+
